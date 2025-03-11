@@ -25,6 +25,6 @@ jobs:
         run: |
           sudo apt install lftp >/dev/null 2>&1
           which lftp && \
-          lftp -c "set ssl:verify-certificate false; open -u ${{ secrets.FTP_USERNAME }},${{ secrets.FTP_PASSWORD }} ${{ secrets.FTP_HOST }}; mirror -n -v / ." || \
+          $(which lftp) -c "set ssl:verify-certificate false; open -u ${{ secrets.FTP_USERNAME }},${{ secrets.FTP_PASSWORD }} ${{ secrets.FTP_HOST }}; mirror -n -v / ." || \
           echo "lftp not installed"
       
