@@ -28,5 +28,5 @@ jobs:
           set mirror:skip-noaccess true; \
           set cmd:trace true;\
           open -u ${{ secrets.FTP_USERNAME }},${{ secrets.FTP_PASSWORD }} ${{ secrets.FTP_HOST }}; \
-          mirror -v --dry-run / /"
+          mirror -v --dry-run /1.\ SeanPauls\ Family\ Minecraft\ Serve /"
       
