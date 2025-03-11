@@ -23,9 +23,12 @@ jobs:
 
       - name: Install lftp
         run: |
-          echo "fish:auto-confirm" > ~/.lftprc
-          sudo apt install lftp >/dev/null 2>&1
-          which lftp && \
-          $(which lftp) -c "set ssl:verify-certificate false; open -u ${{ secrets.FTP_USERNAME }},${{ secrets.FTP_PASSWORD }} ${{ secrets.FTP_HOST }}; mirror -n -v / ." || \
-          echo "lftp not installed"
+          echo "fish:auto-confirm" > ${HOME}/.lftprc
+          cat ${HOME}/.lftprc
+          sudo apt install lftp || true
+          /usr/bin/lftp -c "\
+          set ssl:verify-certificate false; \
+          set fish:auto-confirm true; \
+          open -u ${{ secrets.FTP_USERNAME }},${{ secrets.FTP_PASSWORD }} ${{ secrets.FTP_HOST }}; \
+          mirror -n -v / ."
       
