@@ -26,7 +26,6 @@ jobs:
           sudo apt install lftp || true
           /usr/bin/lftp -c "set sftp:auto-confirm yes; \
           set mirror:skip-noaccess true; \
-          set cmd:trace true;\
           open -u ${{ secrets.FTP_USERNAME }},${{ secrets.FTP_PASSWORD }} ${{ secrets.FTP_HOST }}; \
           mirror -v -a --only-newer /1.\ SeanPauls\ Family\ Minecraft\ Serve /"
       
