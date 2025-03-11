@@ -23,8 +23,6 @@ jobs:
 
       - name: Install lftp
         run: |
-          echo "fish:auto-confirm" > ${HOME}/.lftprc
-          cat ${HOME}/.lftprc
           sudo apt install lftp || true
           /usr/bin/lftp -c "\
           set ssl:verify-certificate false; \
