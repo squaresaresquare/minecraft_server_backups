@@ -24,9 +24,7 @@ jobs:
       - name: Install lftp
         run: |
           sudo apt install lftp || true
-          /usr/bin/lftp -c "\
-          set ssl:verify-certificate false; \
-          set sftp:auto-confirm yes; \
+          /usr/bin/lftp -c "set sftp:auto-confirm yes; \
           open -u ${{ secrets.FTP_USERNAME }},${{ secrets.FTP_PASSWORD }} ${{ secrets.FTP_HOST }}; \
-          mirror -n -v / ."
+          mirror -e -R -p / ."
       
