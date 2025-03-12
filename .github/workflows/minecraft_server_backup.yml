@@ -26,6 +26,5 @@ jobs:
           export PASS='oMV9oHNWyb'
           export HOST='sftp.shockbyte.bhs1.shockbyte.host'
           export USER='seanpaul.bobadilla@gmail.com'
-          echo sshpass -p ${PASS} sftp -4rv -o StrictHostKeyChecking=no -o User=${USER} -P 2222 ${HOST}:/1.\ SeanPauls\ Family\ Minecraft\ Serve/* .
-          sshpass -p ${PASS} sftp -4rv -o StrictHostKeyChecking=no -o User=${USER} -P 2222 ${HOST}:'/1.\\ SeanPauls\\ Family\\ Minecraft\\ Serve/*' .
-          
+          echo sshpass -p ${PASS} sftp -4rv -o StrictHostKeyChecking=no -o User=${USER} -o RemoteCommand='cd /1.\ SeanPauls\ Family\ Minecraft\ Serve' -P 2222 ${HOST}:./* .
+          sshpass -p ${PASS} sftp -4rv -o StrictHostKeyChecking=no -o User=${USER} -o RemoteCommand='cd /1.\ SeanPauls\ Family\ Minecraft\ Serve' -P 2222 ${HOST}:./* .          
