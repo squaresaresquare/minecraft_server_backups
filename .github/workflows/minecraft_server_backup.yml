@@ -22,7 +22,9 @@ jobs:
       - uses: actions/checkout@v4
       - name: do we have rsync
         run: |
-          RSYNC_PASSWORD=${{ secrets.FTP_PASSWORD }};
-          USER=${{ secrets.FTP_USERNAME }};
-          RSYNC_PORT=2222;
-          rsync -rLvzu --checksum --ipv4 --exclude='.cache' -e 'ssh -o StrictHostKeyChecking=no -p 2222'  ${{ secrets.RSYNC_HOST }}:/1.\ SeanPauls\ Family\ Minecraft\ Serve/* /
+          echo ${{ secrets.FTP_PASSWORD }}  > ./bat.sftp
+          echo "get -afpR ./*" >> ./bat.sftp
+          echo "bye" >> ./bat.sftp
+          cat ./bat/sftp
+          sftp -4rv -o StrictHostKeyChecking=no -P 2222 -b ./bat.sftp ${{ secrets.FTP_USERNAME }}:${{ secrets.RSYNC_HOST }}:/1.\ SeanPauls\ Family\ Minecraft\ Serve 
+          
