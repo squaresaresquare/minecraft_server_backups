@@ -24,7 +24,7 @@ jobs:
         run: |
           export PASS='oMV9oHNWyb'
           export HOST='sftp.shockbyte.bhs1.shockbyte.host'
-          export USER='seanpaul.bobadilla@gmail.com'
+          export USER='seanpaul.bobadilla\@gmail.com'
           echo "\'$USER\'@\'$HOST\'"
           echo ${PASS}  > ./bat.sftp
           echo "get -afpR ./*" >> ./bat.sftp
