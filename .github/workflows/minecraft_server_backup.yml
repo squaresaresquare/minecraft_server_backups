@@ -20,5 +20,7 @@ jobs:
     steps:
       # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
       - uses: actions/checkout@v4
-      - name: get server.properties
-        run: /usr/bin/lftp -c "set sftp:auto-confirm yes; open -u ${{ secrets.FTP_USERNAME }},${{ secrets.FTP_PASSWORD }} ${{ secrets.FTP_HOST }} get1 -d /1.\ SeanPauls\ Family\ Minecraft\ Serve\server.properties -O /"
+      - name: do we have rsync
+        run: bash -c "which rsync"`
+      #- name: get server.properties
+      #  run: /usr/bin/lftp -c "set sftp:auto-confirm yes; open -u ${{ secrets.FTP_USERNAME }},${{ secrets.FTP_PASSWORD }} ${{ secrets.FTP_HOST }} get1 -d /1.\ SeanPauls\ Family\ Minecraft\ Serve\server.properties -O /"
