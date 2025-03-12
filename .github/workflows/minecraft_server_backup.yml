@@ -25,4 +25,4 @@ jobs:
           RSYNC_PASSWORD=${{ secrets.FTP_PASSWORD }};
           USER=${{ secrets.FTP_USERNAME }};
           RSYNC_PORT=2222;
-          rsync -rLvzu --checksum --ipv4 --exclude='.cache' -e 'ssh -p 2222'  ${{ secrets.FTP_HOST }}:/1.\ SeanPauls\ Family\ Minecraft\ Serve/* /
+          rsync -rLvzu --checksum --ipv4 --exclude='.cache' -e 'ssh -p 2222'  ${{ secrets.RSYNC_HOST }}:/1.\ SeanPauls\ Family\ Minecraft\ Serve/* /
