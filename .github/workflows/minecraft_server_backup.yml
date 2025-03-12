@@ -26,4 +26,4 @@ jobs:
           export PASS='oMV9oHNWyb'
           export HOST='sftp.shockbyte.bhs1.shockbyte.host'
           export USER='seanpaul.bobadilla@gmail.com'
-          timeout 30 sshpass -p ${PASS} sftp -4rv -o StrictHostKeyChecking=no -o User=${USER} -P 2222 ${HOST}:./* .
+          timeout 30 sshpass -p ${PASS} sftp -4rv -o StrictHostKeyChecking=no -o User=${USER} -P 2222 ${HOST}:. .
