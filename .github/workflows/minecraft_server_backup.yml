@@ -26,5 +26,5 @@ jobs:
           echo "get -afpR ./*" >> ./bat.sftp
           echo "bye" >> ./bat.sftp
           cat ./bat.sftp
-          sftp -4rv -o StrictHostKeyChecking=no -P 2222 -b ./bat.sftp ${{ secrets.FTP_USERNAME }}:${{ secrets.RSYNC_HOST }}:/1.\ SeanPauls\ Family\ Minecraft\ Serve 
+          sftp -4rv -o StrictHostKeyChecking=no -P 2222 -b ./bat.sftp \'${{ secrets.FTP_USERNAME }}\':\'${{ secrets.RSYNC_HOST }}\':/1.\ SeanPauls\ Family\ Minecraft\ Serve 
           
