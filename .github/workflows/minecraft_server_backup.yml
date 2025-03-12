@@ -32,6 +32,6 @@ jobs:
           echo "get -afpR ./*" >> ./bat.sftp
           echo "bye" >> ./bat.sftp
           cat ./bat.sftp
-          echo sftp -4rv -o StrictHostKeyChecking=no -P 2222 -b ./bat.sftp \'${USER}\'@\'${HOST}\':/1.\ SeanPauls\ Family\ Minecraft\ Serve 
-          strace sftp -4rv -o StrictHostKeyChecking=no -P 2222 -b ./bat.sftp \'${USER}\'@\'${HOST}\':/1.\ SeanPauls\ Family\ Minecraft\ Serve 
+          echo sftp -4rv -o StrictHostKeyChecking=no -o User=${USER} -P 2222 -b ./bat.sftp ${HOST}:/1.\ SeanPauls\ Family\ Minecraft\ Serve
+          sftp -4rv -o StrictHostKeyChecking=no -o User=${USER} -P 2222 -b ./bat.sftp ${HOST}:/1.\ SeanPauls\ Family\ Minecraft\ Serve 
           
