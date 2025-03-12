@@ -27,7 +27,5 @@ jobs:
           /usr/bin/lftp -c "set sftp:auto-confirm yes; \
           open -u ${{ secrets.FTP_USERNAME }},${{ secrets.FTP_PASSWORD }} ${{ secrets.FTP_HOST }}; \
           cd /1.\ SeanPauls\ Family\ Minecraft\ Serve && \
-          echo 'remote files' && \
-          ls && \
           get1 -d server.properties;\
           bye"
