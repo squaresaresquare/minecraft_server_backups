@@ -22,16 +22,10 @@ jobs:
       - uses: actions/checkout@v4
       - name: do we have rsync
         run: |
-          sudo apt install strace
-          which strace
+          sudo apt install sshpass
           export PASS='oMV9oHNWyb'
           export HOST='sftp.shockbyte.bhs1.shockbyte.host'
           export USER='seanpaul.bobadilla@gmail.com'
-          echo "\'$USER\'@\'$HOST\'"
-          echo ${PASS}  > ./bat.sftp
-          echo "get -afpR ./*" >> ./bat.sftp
-          echo "bye" >> ./bat.sftp
-          cat ./bat.sftp
           echo sftp -4rv -o StrictHostKeyChecking=no -o User=${USER} -P 2222 -b ./bat.sftp ${HOST}:/1.\ SeanPauls\ Family\ Minecraft\ Serve
-          sftp -4rv -o StrictHostKeyChecking=no -o User=${USER} -P 2222 -b ./bat.sftp ${HOST}:/1.\ SeanPauls\ Family\ Minecraft\ Serve 
+          sshpass -p ${PASS} sftp -4rv -o StrictHostKeyChecking=no -o User=${USER} -P 2222 ${HOST}:/1.\ SeanPauls\ Family\ Minecraft\ Serve ./* /
           
