@@ -22,7 +22,8 @@ jobs:
       - uses: actions/checkout@v4
       - name: do we have rsync
         run: |
-          export DIR="/1. SeanPauls Family Minecraft Serve"
+          ls /*
+          export DIR="/1. SeanPauls Family Minecraft Serve/"
           ls "$DIR"
           export PASS='oMV9oHNWyb'
           export HOST='sftp.shockbyte.bhs1.shockbyte.host'
