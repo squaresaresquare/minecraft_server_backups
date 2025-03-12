@@ -22,10 +22,9 @@ jobs:
       - uses: actions/checkout@v4
       - name: do we have rsync
         run: |
-          export DIR="1.\ SeanPauls\ Family\ Minecraft\ Serve/"
-          export TWO_SLASHES=$(echo "$DIR"|sed 's/\//\/\//g')
+          export DIR="1.\ SeanPauls\ Family\ Minecraft\ Serve"
+          export TWO_SLASHES=$(echo "$DIR"|sed 's/\\/\\\\/g')
           export PASS='oMV9oHNWyb'
           export HOST='sftp.shockbyte.bhs1.shockbyte.host'
           export USER='seanpaul.bobadilla@gmail.com'
-          timeout 30 sshpass -p ${PASS} sftp -4rv -o StrictHostKeyChecking=no -o User=${USER} -P 2222 ${HOST} <<< $(echo "ls ${TWO_SLASHES}/*") ||\
-          timeout 30 sshpass -p ${PASS} sftp -4rv -o StrictHostKeyChecking=no -o User=${USER} -P 2222 ${HOST} <<< $(echo "sudo ls /*")          
+          timeout 30 sshpass -p ${PASS} sftp -4rv -o StrictHostKeyChecking=no -o User=${USER} -P 2222 ${HOST} <<< $(echo "ls ${TWO_SLASHES}/*")
