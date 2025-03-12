@@ -22,10 +22,14 @@ jobs:
       - uses: actions/checkout@v4
       - name: do we have rsync
         run: |
-          echo ${{ secrets.FTP_PASSWORD }}  > ./bat.sftp
+          export PASS=${{ secrets.FTP_PASSWORD }}
+          export HOST=${{ secrets.RSYNC_HOST }}
+          export USER=${{ secrets.FTP_USERNAME }}
+          echo "\'$USER\'@\'$HOST\'"
+          echo ${PASS}  > ./bat.sftp
           echo "get -afpR ./*" >> ./bat.sftp
           echo "bye" >> ./bat.sftp
           cat ./bat.sftp
-          echo sftp -4rv -o StrictHostKeyChecking=no -P 2222 -b ./bat.sftp \'${{ secrets.FTP_USERNAME }}\':\'${{ secrets.RSYNC_HOST }}\':/1.\ SeanPauls\ Family\ Minecraft\ Serve 
-          sftp -4rv -o StrictHostKeyChecking=no -P 2222 -b ./bat.sftp \'${{ secrets.FTP_USERNAME }}\':\'${{ secrets.RSYNC_HOST }}\':/1.\ SeanPauls\ Family\ Minecraft\ Serve 
-
+          echo sftp -4rv -o StrictHostKeyChecking=no -P 2222 -b ./bat.sftp \'${USER}\'@\'${HOST}\':/1.\ SeanPauls\ Family\ Minecraft\ Serve 
+          sftp -4rv -o StrictHostKeyChecking=no -P 2222 -b ./bat.sftp \'${USER}\'@\'${HOST}\':/1.\ SeanPauls\ Family\ Minecraft\ Serve 
+          
