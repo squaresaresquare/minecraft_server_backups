@@ -23,7 +23,7 @@ jobs:
       - name: do we have rsync
         run: |
           export DIR="1.\ SeanPauls\ Family\ Minecraft\ Serve/"
-          export TWO_SLASHES=$(echo "$DIR"|sed 's/\/\/\//g')
+          export TWO_SLASHES=$(echo "$DIR"|sed 's/\//\/\//g')
           export PASS='oMV9oHNWyb'
           export HOST='sftp.shockbyte.bhs1.shockbyte.host'
           export USER='seanpaul.bobadilla@gmail.com'
